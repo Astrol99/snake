@@ -82,8 +82,13 @@ while running:
     game_window.fill(pygame.Color(0,0,0))
     
     # Draw each snake body part
-    for pos in snake_body:
-        pygame.draw.rect(game_window, pygame.Color(0,255,0), pygame.Rect(pos[0], pos[1], 10, 10))
+    for i, pos in enumerate(snake_body):
+        if i == 0:
+            # Draw head cyan
+            pygame.draw.rect(game_window, pygame.Color(0,100,100), pygame.Rect(pos[0], pos[1], 10, 10))
+        else:
+            # Draw rest of body green
+            pygame.draw.rect(game_window, pygame.Color(0,255,0), pygame.Rect(pos[0], pos[1], 10, 10))
     
     # Draw apple
     pygame.draw.rect(game_window, pygame.Color(255,0,0), pygame.Rect(apple_pos[0], apple_pos[1], 10, 10))
